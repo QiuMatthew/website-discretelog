@@ -1,0 +1,18 @@
+# Production Dockerfile - uses pre-built binary
+FROM alpine:latest
+
+# Install Python3 for the Pohlig-Hellman algorithm
+RUN apk add --no-cache python3
+
+WORKDIR /root/
+
+# Copy the pre-built Go binary and Python script
+COPY discretelog-server .
+COPY pohlig_hellman.py .
+
+# Make the binary executable
+RUN chmod +x discretelog-server
+
+EXPOSE 8080
+
+CMD ["./discretelog-server"]

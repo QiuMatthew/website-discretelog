@@ -1,0 +1,8 @@
+# Go binary
+discretelog-server
+
+# Test builds
+test-build
+
+# OS files
+.DS_Store
